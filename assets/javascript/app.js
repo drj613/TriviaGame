@@ -9,6 +9,16 @@ $(document).ready(function(){
 	correctChoice = 0,
 	wrongChoice = 0;
 
+	function setQType(questionURL){
+		$.ajax({
+			url: questionURL,
+			method: "GET"
+		}).done(function(response) {
+			triviaInfo=response.results;
+			console.log(triviaInfo);
+			game();
+		});
+	}
 
 // function game() {
 // 	FOR LOOP (i < triviaInfo.length) {
@@ -116,7 +126,6 @@ $(document).ready(function(){
 
 		}
 	}
-
 
 	//TIMER
 // var count=30;
